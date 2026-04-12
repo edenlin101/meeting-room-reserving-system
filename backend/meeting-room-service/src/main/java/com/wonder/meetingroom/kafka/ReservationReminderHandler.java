@@ -20,6 +20,7 @@ public class ReservationReminderHandler implements MessageHandler<ReservationRem
     public void handle(String key, ReservationReminderEvent message) {
         logger.info("Sending reservation reminder to user {}, reservation {} starts at {}",
             message.userId, message.reservationId, message.startTime);
+
         notificationService.sendReminder(message);
     }
 }
