@@ -3,6 +3,7 @@ package com.wonder.meetingroom.web;
 import com.wonder.meetingroom.api.ReservationWebService;
 import com.wonder.meetingroom.api.dto.ReservationRequest;
 import com.wonder.meetingroom.api.dto.ReservationView;
+import com.wonder.meetingroom.api.dto.SearchReservationRequest;
 import com.wonder.meetingroom.service.ReservationService;
 import core.framework.inject.Inject;
 
@@ -16,8 +17,8 @@ public class ReservationWebServiceImpl implements ReservationWebService {
     ReservationService reservationService;
 
     @Override
-    public List<ReservationView> search(Long roomId, String date) {
-        return reservationService.search(roomId, date);
+    public List<ReservationView> search(Long roomId, SearchReservationRequest request) {
+        return reservationService.search(roomId, request.date);
     }
 
     @Override

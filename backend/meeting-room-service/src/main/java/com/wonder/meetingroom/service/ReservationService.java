@@ -4,6 +4,7 @@ import com.wonder.meetingroom.api.dto.ReservationRequest;
 import com.wonder.meetingroom.api.dto.ReservationView;
 import com.wonder.meetingroom.domain.Reservation;
 import com.wonder.meetingroom.domain.ReservationStatus;
+import core.framework.db.Query;
 import core.framework.db.Repository;
 import core.framework.inject.Inject;
 import core.framework.web.exception.NotFoundException;
@@ -28,6 +29,17 @@ public class ReservationService {
         LocalDateTime endOfDay = localDate.atTime(LocalTime.MAX);
         
         List<Reservation> reservations = reservationRepository.select("room_id = ? AND start_time >= ? AND start_time <= ?", roomId, startOfDay, endOfDay);
+        return reservations.stream().map(this::view).collect(Collectors.toList());
+    }
+
+    public List<ReservationView> searchByRoom(Long roomId) {
+        List<Reservation> reservations = reservationRepository.select("room_id = ?", roomId);
+        return reservations.stream().map(this::view).collect(Collectors.toList());
+    }
+
+    public List<ReservationView> searchAll() {
+        Query<Reservation> query = reservationRepository.select();
+        List<Reservation> reservations = query.fetch();
         return reservations.stream().map(this::view).collect(Collectors.toList());
     }
 

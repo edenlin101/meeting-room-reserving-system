@@ -16,7 +16,6 @@ This section contains the essential rules and patterns. **Always read this secti
 
 | Constraint | Description |
 |------------|-------------|
-| WebService impl package | WebService implementation classes MUST be placed in a `web` package (NOT `service`) |
 | Single constructor | Only ONE public constructor per class |
 | Field injection only | No constructor injection; use `@Inject` on fields |
 | Explicit binding | All services MUST be registered via `bind()` in Module |
@@ -25,6 +24,8 @@ This section contains the essential rules and patterns. **Always read this secti
 | Static paths | WebSocket/SSE paths cannot have dynamic parameters (`:id`) |
 | Annotation separation | `@Field` for MongoDB, `@Property` for API/JSON, `@Column` for SQL |
 | Inner class registration | ALL static inner classes need `view()` registration for MongoDB |
+| Impl package location | WebService impl classes MUST be placed in `web` package |
+| Root build.gradle only | All build configuration MUST be in root `build.gradle`, subprojects have NONE |
 
 ---
 
@@ -151,6 +152,8 @@ public class SearchRequest {
     @QueryParam(name = "page_size")
     public Integer pageSize;
 }
+//WRONG - directly in interface is unsupported
+List<RoomView> listRooms(@QueryParam("company_id") Long companyId);
 ```
 
 ### 2.6 Service with Dependency Injection
