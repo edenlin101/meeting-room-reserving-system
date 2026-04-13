@@ -127,6 +127,24 @@ public interface ItemWebService {
 }
 ```
 
+**Note on Collection Response Types:**
+WebService interface methods cannot return `List<T>` directly. For collection responses, use a response bean class with `@Property` annotations:
+```java
+// WRONG - will cause runtime error
+List<RoomView> listRooms(@PathParam("companyId") Long companyId);
+
+// CORRECT - use a response bean with @Property annotations
+RoomListResponse listRooms(@PathParam("companyId") Long companyId);
+
+// Response bean example - must only have public default constructor
+public class RoomListResponse {
+    @Property(name = "items")
+    public List<RoomView> items;
+
+    public RoomListResponse() { }
+}
+```
+
 ### 2.5 Request/Response Beans
 ```java
 public class CreateItemRequest {
@@ -890,6 +908,181 @@ void setUp() {
 ```
 
 ---
+
+## 17. Project Structure
+
+### 17.1 Service Directory Layout
+
+```
+{service-name}/
+├── src/
+│   └── main/
+│       ├── java/
+│       │   └── {package}/
+│       │       └── Application.java    # Main class with main() method
+│       └── resources/
+│           ├── sys.properties          # System configuration
+│           └── app.properties          # Application configuration
+```
+
+### 17.2 Application Main Class
+
+Each service MUST have a main class to start the application:
+
+```java
+package com.blueapron.service;
+
+import core.framework.module.Module;
+import core.framework.app.Application;
+
+public class Application extends Application {
+    @Override
+    protected Module module() {
+        return new AppModule();
+    }
+}
+```
+
+### 17.3 sys.properties (System Configuration)
+
+Contains system-level configuration:
+
+```properties
+# HTTP Server
+sys.http.listen=0.0.0.0:8080
+
+# HTTPS Server
+sys.https.listen=0.0.0.0:8443
+
+# Database (JDBC)
+sys.jdbc.url=jdbc:mysql://localhost:3306/service_db
+sys.jdbc.user=service_user
+sys.jdbc.password=secret
+
+# Kafka
+sys.kafka.uri=localhost:9092
+
+# Logging
+sys.log.appender=console
+```
+
+### 17.4 Database Migration Modules
+
+Each service that uses a database MUST have corresponding migration modules:
+
+**Rules:**
+- If a service uses **MySQL/SQL database**, it MUST have a `{service-name}-db-migration` module
+- If a service uses **MongoDB**, it MUST have a `{service-name}-mongo-migration` module
+- Only create migration modules if the service actually uses the corresponding database; if a database is not used, do not create the migration module
+- Both migration modules follow the pattern defined in the architecture
+
+**Migration Module Structure:**
+
+**db-migration** (Flyway):
+```
+{service-name}-db-migration/
+└── src/main/resources/db/migration/
+    ├── V1__create_table.sql
+    └── R__initial_data.sql
+```
+
+**mongo-migration** (Custom Gradle plugin):
+```
+{service-name}-mongo-migration/
+├── src/main/java/{package}/
+│   ├── Main.java                     # Migration entry point
+│   └── script/
+│       └── {Entity}Script.java      # Data migration scripts
+└── src/main/resources/
+    └── sys.properties               # MongoDB URI config (sys.mongo.uri)
+```
+
+### 17.5 MongoDB Migration Details
+
+**Main.java** - Entry point that executes migration:
+```java
+public class Main {
+    public static void main(String[] args) {
+        var migration = new MongoMigration("sys.properties");
+        migration.migrate(mongo -> {
+            createIndex(mongo);
+        });
+        executeMigrationScript();
+    }
+
+    private static void executeMigrationScript() {
+        Properties properties = new Properties();
+        properties.load("sys.properties");
+        var uri = properties.get("sys.mongo.uri").orElseThrow();
+        var migration = new core.ext.mongo.migration.MongoMigration(uri);
+        migration.scanPackagePath("app.{package}.script").migration();
+    }
+}
+```
+
+**sys.properties** - MongoDB configuration:
+```properties
+sys.mongo.uri=mongodb://localhost:27017/service_db
+```
+
+**Script Classes** - Annotated migration scripts:
+```java
+@Flyway(collection = "collection_name")
+public class EntityScript {
+
+    @Script(ticket = "XXX", description = "description", testMethod = "none", runAlways = false)
+    public void initData(MongoCollection<Document> collection) {
+        // Insert/update operations
+    }
+
+    @Script(ticket = "XXX", description = "description", testMethod = "none")
+    public void deleteIndex(MongoCollection<Document> collection) {
+        collection.dropIndex("index_name");
+    }
+}
+```
+
+**Annotations:**
+- `@Flyway(collection)` - Specifies the MongoDB collection to migrate
+- `@Script(ticket, description, testMethod, runAlways)` - Marks a migration method
+  - `ticket`: Jira ticket number
+  - `description`: Migration description
+  - `testMethod`: Test method name, or `"none"` if not needed
+  - `runAlways`: Whether to run on every startup (default `true`)
+
+---
+
+## 18. Application Startup
+
+### 18.1 Startup Order
+
+1. Load `sys.properties` first
+2. Initialize infrastructure (DB, MongoDB, Kafka, Redis)
+3. Load `app.properties`
+4. Initialize business modules
+5. Start HTTP/HTTPS servers
+
+### 18.2 Module Setup Example
+
+```java
+public class AppModule extends Module {
+    @Override
+    protected void initialize() {
+        loadProperties("sys.properties");
+        loadProperties("app.properties");
+
+        db().url(requiredProperty("sys.jdbc.url"))
+           .user(requiredProperty("sys.jdbc.user"))
+           .password(requiredProperty("sys.jdbc.password"));
+
+        kafka().uri(requiredProperty("sys.kafka.uri"));
+
+        http().listenHTTP(property("sys.http.listen").orElse("0.0.0.0:8080"));
+
+        load(new ItemModule());
+    }
+}
+```
 
 ## References
 

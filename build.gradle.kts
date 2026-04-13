@@ -37,18 +37,8 @@ configure(subprojects.filter { it.name.endsWith("-db-migration") }) {
     apply(plugin = "db-migration")
 
     dependencies {
-        runtimeOnly("com.mysql:mysql-connector-j")
-    }
-}
-
-configure(subprojects.filter { it.name.endsWith("-mongo-migration") }) {
-    apply(plugin = "app")
-    // add here
-    apply(plugin = "mongo-migration")
-    dependencies {
         implementation("com.wonder:core-ng")
-        implementation("com.wonder:core-ng-mongo")
-        implementation("com.wonder:core-ext-mongo-migration")
+        runtimeOnly("com.mysql:mysql-connector-j")
     }
 }
 
@@ -70,7 +60,6 @@ configure(subprojects.filter { it.name.endsWith("-service") }) {
     }
 }
 
-// services use db
 configure(
     listOf(
         project(":backend:meeting-room-service")
@@ -82,21 +71,9 @@ configure(
     }
 }
 
-// services use mongodb
-configure(
-    listOf(
-        project(":backend:meeting-room-service")
-    )
-) {
-    dependencies {
-        implementation(platform("com.wonder:wonder-dependencies:3.0.+"))
-        implementation("com.wonder:core-ng-mongo")
-        testImplementation("com.wonder:core-ng-mongo-test")
-    }
-}
-
-project("backend:meeting-room-service") {
+project(":backend:meeting-room-service") {
     dependencies {
         "implementation"(project(":backend:meeting-room-service-interface"))
+        "implementation"(project(":backend:meeting-room-service-db-migration"))
     }
 }
