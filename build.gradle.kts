@@ -62,7 +62,11 @@ configure(subprojects.filter { it.name.endsWith("-service") }) {
 
 configure(
     listOf(
-        project(":backend:meeting-room-service")
+        project(":backend:user-service"),
+        project(":backend:resource-service"),
+        project(":backend:booking-service"),
+        project(":backend:notification-service"),
+        project(":backend:scheduler-service")
     )
 ) {
     dependencies {
@@ -71,9 +75,51 @@ configure(
     }
 }
 
-project(":backend:meeting-room-service") {
+configure(
+    listOf(
+        project(":frontend:website-gateway"),
+        project(":frontend:backoffice-gateway")
+    )
+) {
     dependencies {
-        "implementation"(project(":backend:meeting-room-service-interface"))
-        "implementation"(project(":backend:meeting-room-service-db-migration"))
+        "implementation"("com.wonder:core-ng")
+    }
+}
+
+project(":backend:user-service") {
+    dependencies {
+        "implementation"(project(":backend:user-service-interface"))
+    }
+}
+
+project(":backend:resource-service") {
+    dependencies {
+        "implementation"(project(":backend:resource-service-interface"))
+    }
+}
+
+project(":backend:booking-service") {
+    dependencies {
+        "implementation"(project(":backend:booking-service-interface"))
+    }
+}
+
+project(":backend:notification-service") {
+    dependencies {
+    }
+}
+
+project(":backend:scheduler-service") {
+    dependencies {
+    }
+}
+
+project(":frontend:website-gateway") {
+    dependencies {
+    }
+}
+
+project(":frontend:backoffice-gateway") {
+    dependencies {
     }
 }
