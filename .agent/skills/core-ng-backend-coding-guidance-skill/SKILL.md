@@ -33,11 +33,13 @@ When Core-NG is detected, Claude MUST read the specification before writing any 
 
 ## Assets
 
-Single specification file with two parts:
+Single specification file with three parts:
 
-**`assets/spec.md`** (~900 lines)
+**`assets/spec.md`** (~1200 lines)
 - **Part 1: Core Rules & Patterns** (Sections 1-6) - Essential rules, always read
-- **Part 2: API Reference** (Sections 7-16) - Detailed API, read when needed
+- **Part 2: API Reference** (Sections 7-19) - Detailed API, read when needed
+
+**`assets/project.md`** - Project requirements and business logic
 
 ## How It Works
 
@@ -69,6 +71,9 @@ Based on the current task, read relevant API Reference sections:
 | WebSocket/SSE | Section 14 (WebSocket/SSE Reference) |
 | Logging/monitoring | Section 15 (Logging Reference) |
 | Test setup | Section 16 (Testing Reference) |
+| Configuration/properties | Section 17 (Configuration Reference) |
+| Application bootstrap | Section 18 (Application Setup Reference) |
+| Gateway/Frontend API | Section 19 (Frontend Gateways Specification) |
 
 ### Step 3: Impact Analysis (MANDATORY - Before Writing Any Code)
 
@@ -150,7 +155,10 @@ spec.md
     ├── 13. Scheduler Reference
     ├── 14. WebSocket and SSE Reference
     ├── 15. Logging and Monitoring Reference
-    └── 16. Testing Reference
+    ├── 16. Testing Reference
+    ├── 17. Configuration Reference
+    ├── 18. Application Setup Reference
+    └── 19. Frontend Gateways Specification (Project-Specific)
 ```
 
 ## Usage
