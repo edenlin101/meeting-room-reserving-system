@@ -914,31 +914,29 @@ void setUp() {
 ### 17.1 Service Directory Layout
 
 ```
-{service-name}/
-├── src/
-│   └── main/
-│       ├── java/
-│       │   └── {package}/
-│       │       └── Application.java    # Main class with main() method
-│       └── resources/
-│           ├── sys.properties          # System configuration
-│           └── app.properties          # Application configuration
+{service-name-service}/
+└── src/
+    └── main/
+        ├── java/
+        │   ├── Main.java
+        │   └── app.{service-name-package}/
+        │       ├── {service-name-prefix}App.java       # Application, extends App
+        │       └── {module-name}Module.java    # Module
+        └── resources/
+            ├── sys.properties          # System configuration
+            └── app.properties          # Application configuration
 ```
 
-### 17.2 Application Main Class
+### 17.2 Main Class
 
 Each service MUST have a main class to start the application:
 
 ```java
-package com.blueapron.service;
+import app.meetingroom.MeetingRoomApp;
 
-import core.framework.module.Module;
-import core.framework.app.Application;
-
-public class Application extends Application {
-    @Override
-    protected Module module() {
-        return new AppModule();
+public class Main {
+    public static void main(String[] args) {
+        new MeetingRoomApp().start();
     }
 }
 ```
@@ -1062,7 +1060,24 @@ public class EntityScript {
 4. Initialize business modules
 5. Start HTTP/HTTPS servers
 
-### 18.2 Module Setup Example
+### 18.2 Application Setup Example
+
+```java
+package app.meetingroom;
+
+import core.framework.module.App;
+import core.framework.module.SystemModule;
+
+public class MeetingRoomApp extends App {
+    @Override
+    protected void initialize() {
+        load(new SystemModule("sys.properties"));
+        load(new MeetingRoomModule());
+    }
+}
+```
+
+### 18.3 Module Setup Example
 
 ```java
 public class AppModule extends Module {

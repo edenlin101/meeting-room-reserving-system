@@ -1,13 +1,15 @@
 package app.website;
 
-import app.website.api.WebsiteWebService;
-import app.website.web.WebsiteWebServiceImpl;
+import app.user.api.UserWebService;
+import app.website.user.api.UserAJAXWebService;
+import app.website.user.web.UserAJAXWebServiceImpl;
 import core.framework.module.Module;
 
 public class WebsiteModule extends Module {
     @Override
     protected void initialize() {
-        bind(WebsiteWebService.class);
-        api().service(WebsiteWebService.class, bind(WebsiteWebServiceImpl.class));
+        api().client(UserWebService.class, requiredProperty("app.userService.url"));
+        
+        api().service(UserAJAXWebService.class, bind(UserAJAXWebServiceImpl.class));
     }
 }

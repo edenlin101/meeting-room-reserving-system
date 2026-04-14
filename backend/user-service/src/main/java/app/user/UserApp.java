@@ -1,14 +1,12 @@
-package app.website;
+package app.user;
 
 import core.framework.module.App;
 import core.framework.module.SystemModule;
 
-public class WebsiteApp extends App {
+public class UserApp extends App {
     @Override
     protected void initialize() {
         load(new SystemModule("sys.properties"));
-        loadProperties("app.properties");
-        
-        load(new WebsiteModule());
+        load(new UserModule());
     }
 }

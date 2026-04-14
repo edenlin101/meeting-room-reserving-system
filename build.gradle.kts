@@ -77,10 +77,11 @@ configure(
 
 configure(
     listOf(
-        project(":frontend:website-gateway"),
-        project(":frontend:backoffice-gateway")
+        project(":frontend:website"),
+        project(":frontend:backoffice")
     )
 ) {
+    apply(plugin = "app")
     dependencies {
         "implementation"("com.wonder:core-ng")
     }
@@ -114,12 +115,19 @@ project(":backend:scheduler-service") {
     }
 }
 
-project(":frontend:website-gateway") {
+project(":frontend:website") {
     dependencies {
+        "implementation"(project(":frontend:website-interface"))
+        "implementation"(project(":backend:user-service-interface"))
+        "implementation"(project(":backend:resource-service-interface"))
+        "implementation"(project(":backend:booking-service-interface"))
     }
 }
 
-project(":frontend:backoffice-gateway") {
+project(":frontend:backoffice") {
     dependencies {
+        "implementation"(project(":backend:user-service-interface"))
+        "implementation"(project(":backend:resource-service-interface"))
+        "implementation"(project(":backend:booking-service-interface"))
     }
 }
