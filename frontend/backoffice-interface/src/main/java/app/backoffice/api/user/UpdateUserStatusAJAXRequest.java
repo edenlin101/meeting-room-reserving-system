@@ -8,8 +8,8 @@ public class UpdateUserStatusAJAXRequest {
     @Property(name = "user_id")
     public Long userId;
 
-    @NotNull
     @NotBlank
+    @NotNull
     @Property(name = "status")
     public String status;
 }

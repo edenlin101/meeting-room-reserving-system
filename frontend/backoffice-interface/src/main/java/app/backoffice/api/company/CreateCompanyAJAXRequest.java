@@ -4,8 +4,8 @@ import core.framework.api.validate.NotBlank;
 import core.framework.api.validate.NotNull;
 
 public class CreateCompanyAJAXRequest {
-    @NotNull
     @NotBlank
+    @NotNull
     @Property(name = "name")
     public String name;
 }

@@ -8,8 +8,8 @@ public class CreateRoomAJAXRequest {
     @Property(name = "company_id")
     public Long companyId;
 
-    @NotNull
     @NotBlank
+    @NotNull
     @Property(name = "name")
     public String name;
 

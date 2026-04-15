@@ -5,13 +5,13 @@ import core.framework.api.validate.NotBlank;
 import core.framework.api.validate.NotNull;
 
 public class LoginAJAXRequest {
-    @NotNull
     @NotBlank
+    @NotNull
     @Property(name = "username")
     public String username;
 
-    @NotNull
     @NotBlank
+    @NotNull
     @Property(name = "password")
     public String password;
 }
