@@ -15,6 +15,8 @@ import core.framework.module.Module;
 public class WebsiteModule extends Module {
     @Override
     protected void initialize() {
+        site().session().local();
+
         api().client(UserWebService.class, requiredProperty("app.userService.url"));
         api().client(CompanyWebService.class, requiredProperty("app.resourceService.url"));
         api().client(RoomWebService.class, requiredProperty("app.resourceService.url"));

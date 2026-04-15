@@ -7,23 +7,39 @@ import app.backoffice.admin.api.admin.AdminLoginAJAXResponse;
 import app.backoffice.admin.api.user.UpdateUserStatusAJAXRequest;
 import app.backoffice.admin.api.user.UpdateUserStatusAJAXResponse;
 import core.framework.inject.Inject;
+import core.framework.web.Request;
+import core.framework.web.exception.UnauthorizedException;
+
 public class AdminAJAXWebServiceImpl implements AdminAJAXWebService {
     @Inject
     BOUserWebService boUserWebService;
 
+    @Inject
+    Request request;
+
     @Override
-    public AdminLoginAJAXResponse login(AdminLoginAJAXRequest request) {
+    public AdminLoginAJAXResponse login(AdminLoginAJAXRequest loginRequest) {
         // Implement admin login logic
+        if (!"admin".equals(loginRequest.username) || !"admin".equals(loginRequest.password)) {
+            throw new UnauthorizedException("invalid admin credentials");
+        }
+        
+        request.session().set("adminId", "admin");
+
         AdminLoginAJAXResponse response = new AdminLoginAJAXResponse();
         response.token = "dummy-admin-token";
         return response;
     }
 
     @Override
-    public UpdateUserStatusAJAXResponse updateStatus(UpdateUserStatusAJAXRequest request) {
+    public UpdateUserStatusAJAXResponse updateStatus(UpdateUserStatusAJAXRequest statusRequest) {
+        if (!request.session().get("adminId").isPresent()) {
+            throw new UnauthorizedException("admin not logged in");
+        }
+        
         BOUpdateUserStatusRequest boRequest = new BOUpdateUserStatusRequest();
-        boRequest.userId = request.userId;
-        boRequest.status = request.status;
+        boRequest.userId = statusRequest.userId;
+        boRequest.status = statusRequest.status;
         boUserWebService.updateStatus(boRequest);
         return new UpdateUserStatusAJAXResponse();
     }

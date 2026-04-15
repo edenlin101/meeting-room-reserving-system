@@ -1230,6 +1230,12 @@ Operations for administrators in the backend.
 **Reservation Service**
 - `GET /bo/reservation/list` -> `BOSearchReservationRequest` / `BOSearchReservationResponse`
 
+### 19.5 Scheduler Jobs Separation
+**Important Principle:** Scheduler jobs (like sending notifications or regular cleanups) MUST be placed in a dedicated `scheduler-service` module rather than inside business microservices (e.g. `booking-service`). This ensures that jobs run as a single logical node or a cleanly separated process, avoiding duplicate data fetching or concurrent executions across multiple instances of the business service.
+
+### 19.6 Session Management
+**Important Principle:** For gateway modules (e.g. `website`, `backoffice`), use Core-NG's session management (`site().session().local();` or redis based) to maintain user login state. Store session data via cookies or headers. After a user logs in, store their `userId` in the session. In subsequent requests, use an Interceptor or direct `Request` injection to validate the session and retrieve the user's data.
+
 ---
 
 ## References

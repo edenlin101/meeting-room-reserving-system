@@ -11,10 +11,14 @@ import app.website.user.api.user.RegisterUserAJAXRequest;
 import app.website.user.api.user.RegisterUserAJAXResponse;
 import app.website.user.api.UserAJAXWebService;
 import core.framework.inject.Inject;
+import core.framework.web.Request;
 
 public class UserAJAXWebServiceImpl implements UserAJAXWebService {
     @Inject
     UserWebService userWebService;
+
+    @Inject
+    Request request;
 
     @Override
     public RegisterUserAJAXResponse register(RegisterUserAJAXRequest ajaxRequest) {
@@ -42,6 +46,8 @@ public class UserAJAXWebServiceImpl implements UserAJAXWebService {
         LoginAJAXResponse ajaxResponse = new LoginAJAXResponse();
         ajaxResponse.token = serviceResponse.token;
         ajaxResponse.userId = serviceResponse.id;
+        
+        request.session().set("userId", String.valueOf(serviceResponse.id));
         
         return ajaxResponse;
     }

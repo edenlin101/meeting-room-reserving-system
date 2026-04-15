@@ -14,10 +14,17 @@ import app.website.reservation.api.reservation.ReservationAJAXView;
 import app.website.reservation.api.reservation.ReserveRoomAJAXRequest;
 import app.website.reservation.api.reservation.ReserveRoomAJAXResponse;
 import core.framework.inject.Inject;
+import core.framework.web.Request;
+import core.framework.web.exception.UnauthorizedException;
 import java.util.stream.Collectors;
 public class ReservationAJAXWebServiceImpl implements ReservationAJAXWebService {
     @Inject BookingWebService bookingWebService;
+    @Inject Request httpRequest;
     
+    private Long currentUserId() {
+        return Long.valueOf(httpRequest.session().get("userId").orElseThrow(() -> new UnauthorizedException("User not logged in")));
+    }
+
     @Override
     public GetCalendarAJAXResponse calendar(GetCalendarAJAXRequest request) {
         GetCalendarRequest calendarRequest = new GetCalendarRequest();
@@ -46,7 +53,7 @@ public class ReservationAJAXWebServiceImpl implements ReservationAJAXWebService 
         reserveRequest.roomId = request.roomId;
         reserveRequest.startTime = request.startTime;
         reserveRequest.endTime = request.endTime;
-        reserveRequest.userId = 1L; // To be extracted from session in real impl
+        reserveRequest.userId = currentUserId();
         
         ReserveRoomResponse response = bookingWebService.reserve(reserveRequest);
         ReserveRoomAJAXResponse ajaxResponse = new ReserveRoomAJAXResponse();
@@ -58,7 +65,7 @@ public class ReservationAJAXWebServiceImpl implements ReservationAJAXWebService 
     public CancelReservationAJAXResponse cancel(CancelReservationAJAXRequest request) {
         CancelReservationRequest cancelRequest = new CancelReservationRequest();
         cancelRequest.id = request.id;
-        cancelRequest.userId = 1L; // To be extracted from session
+        cancelRequest.userId = currentUserId();
         bookingWebService.cancel(cancelRequest);
         return new CancelReservationAJAXResponse();
     }
