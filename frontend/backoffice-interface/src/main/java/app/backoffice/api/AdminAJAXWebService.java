@@ -11,7 +11,6 @@ public interface AdminAJAXWebService {
     @POST
     @Path("/ajax/admin/login")
     AdminLoginAJAXResponse login(AdminLoginAJAXRequest request);
-
     @PUT
     @Path("/ajax/user/status")
     UpdateUserStatusAJAXResponse updateStatus(UpdateUserStatusAJAXRequest request);

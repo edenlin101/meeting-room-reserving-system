@@ -19,23 +19,18 @@ public interface ResourceAJAXWebService {
     @POST
     @Path("/ajax/company/create")
     CreateCompanyAJAXResponse createCompany(CreateCompanyAJAXRequest request);
-
     @DELETE
     @Path("/ajax/company/:id")
     DeleteCompanyAJAXResponse deleteCompany(@PathParam("id") Long id);
-
     @GET
     @Path("/ajax/company/list")
     ListCompanyAJAXResponse listCompany(ListCompanyAJAXRequest request);
-
     @POST
     @Path("/ajax/room/create")
     CreateRoomAJAXResponse createRoom(CreateRoomAJAXRequest request);
-
     @DELETE
     @Path("/ajax/room/:id")
     DeleteRoomAJAXResponse deleteRoom(@PathParam("id") Long id);
-
     @GET
     @Path("/ajax/room/list")
     ListRoomAJAXResponse listRoom(ListRoomAJAXRequest request);

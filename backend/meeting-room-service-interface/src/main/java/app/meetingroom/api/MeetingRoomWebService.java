@@ -10,7 +10,6 @@ public interface MeetingRoomWebService {
     @GET
     @Path("/company/:companyId/room")
     RoomListResponse listRoom(@PathParam("companyId") Long companyId);
-
     @GET
     @Path("/room/:id")
     RoomView get(@PathParam("id") Long id);

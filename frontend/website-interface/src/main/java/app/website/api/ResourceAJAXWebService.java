@@ -10,7 +10,6 @@ public interface ResourceAJAXWebService {
     @GET
     @Path("/ajax/company/list")
     ListCompanyAJAXResponse listCompany(ListCompanyAJAXRequest request);
-
     @GET
     @Path("/ajax/room/list")
     ListRoomAJAXResponse listRoom(ListRoomAJAXRequest request);

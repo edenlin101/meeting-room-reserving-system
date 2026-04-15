@@ -22,39 +22,30 @@ public interface AdminWebService {
     @GET
     @Path("/admin/company")
     CompanyListResponse listCompany();
-
     @POST
     @Path("/admin/company")
     CompanyView createCompany(CompanyRequest request);
-
     @DELETE
     @Path("/admin/company/:id")
     void removeCompany(@PathParam("id") Long id);
-
     @GET
     @Path("/admin/room")
     RoomListResponse listRoom(SearchRoomsRequest request);
-
     @POST
     @Path("/admin/room")
     RoomView createRoom(RoomRequest request);
-
     @DELETE
     @Path("/admin/room/:id")
     void removeRoom(@PathParam("id") Long id);
-
     @GET
     @Path("/admin/reservation")
     ReservationListResponse searchReservation(SearchReservationsRequest request);
-
     @GET
     @Path("/admin/user")
     UserListResponse listUser(SearchUsersRequest request);
-
     @PUT
     @Path("/admin/user/:id/activate")
     void activateUser(@PathParam("id") Long id);
-
     @PUT
     @Path("/admin/user/:id/deactivate")
     void deactivateUser(@PathParam("id") Long id);

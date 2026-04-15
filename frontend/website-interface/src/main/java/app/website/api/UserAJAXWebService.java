@@ -11,7 +11,6 @@ public interface UserAJAXWebService {
     @POST
     @Path("/ajax/user/register")
     RegisterUserAJAXResponse register(RegisterUserAJAXRequest request);
-
     @POST
     @Path("/ajax/user/login")
     LoginAJAXResponse login(LoginAJAXRequest request);

@@ -14,11 +14,9 @@ public interface ReservationWebService {
     @GET
     @Path("/room/:id/reservation")
     ReservationListResponse search(@PathParam("id") Long roomId, SearchReservationRequest request);
-
     @POST
     @Path("/room/:id/reservation")
     ReservationView create(@PathParam("id") Long roomId, ReservationRequest request);
-
     @DELETE
     @Path("/reservation/:id")
     void cancel(@PathParam("id") Long id);

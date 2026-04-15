@@ -17,7 +17,4 @@ public class ReservationReminderEvent {
 
     @Property(name = "end_time")
     public String endTime;
-
-
-
 }

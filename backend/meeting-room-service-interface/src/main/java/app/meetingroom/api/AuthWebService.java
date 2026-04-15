@@ -11,7 +11,6 @@ public interface AuthWebService {
     @POST
     @Path("/auth/register")
     UserView register(RegisterRequest request);
-
     @POST
     @Path("/auth/login")
     LoginResponse login(LoginRequest request);

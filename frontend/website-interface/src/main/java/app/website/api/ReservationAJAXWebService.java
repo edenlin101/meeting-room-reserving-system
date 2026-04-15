@@ -13,11 +13,9 @@ public interface ReservationAJAXWebService {
     @GET
     @Path("/ajax/reservation/calendar")
     GetCalendarAJAXResponse calendar(GetCalendarAJAXRequest request);
-
     @POST
     @Path("/ajax/reservation/reserve")
     ReserveRoomAJAXResponse reserve(ReserveRoomAJAXRequest request);
-
     @POST
     @Path("/ajax/reservation/cancel")
     CancelReservationAJAXResponse cancel(CancelReservationAJAXRequest request);

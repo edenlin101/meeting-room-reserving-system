@@ -99,6 +99,12 @@ project(":backend:resource-service") {
     }
 }
 
+project(":backend:meeting-room-service") {
+    dependencies {
+        "implementation"(project(":backend:meeting-room-service-interface"))
+    }
+}
+
 project(":backend:booking-service") {
     dependencies {
         "implementation"(project(":backend:booking-service-interface"))

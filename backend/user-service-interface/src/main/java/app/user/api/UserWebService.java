@@ -11,7 +11,6 @@ public interface UserWebService {
     @POST
     @Path("/user/register")
     RegisterUserResponse register(RegisterUserRequest request);
-
     @POST
     @Path("/user/login")
     LoginUserResponse login(LoginUserRequest request);
