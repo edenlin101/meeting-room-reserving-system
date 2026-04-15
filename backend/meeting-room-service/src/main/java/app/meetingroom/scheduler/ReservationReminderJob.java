@@ -14,10 +14,8 @@ import java.util.List;
 
 public class ReservationReminderJob implements Job {
     private static final Logger LOG = LoggerFactory.getLogger(ReservationReminderJob.class);
-
     @Inject
     ReservationService reservationService;
-
     @Inject
     MessagePublisher<ReservationReminderEvent> publisher;
 

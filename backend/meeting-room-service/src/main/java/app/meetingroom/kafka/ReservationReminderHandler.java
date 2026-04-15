@@ -7,7 +7,6 @@ import org.slf4j.LoggerFactory;
 
 public class ReservationReminderHandler implements MessageHandler<ReservationReminderEvent> {
     private static final Logger LOG = LoggerFactory.getLogger(ReservationReminderHandler.class);
-
     @Inject
     NotificationService notificationService;
 

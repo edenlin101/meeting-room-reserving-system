@@ -13,7 +13,6 @@ import core.framework.web.exception.UnauthorizedException;
 public class AdminAJAXWebServiceImpl implements AdminAJAXWebService {
     @Inject
     BOUserWebService boUserWebService;
-
     @Inject
     Request request;
 

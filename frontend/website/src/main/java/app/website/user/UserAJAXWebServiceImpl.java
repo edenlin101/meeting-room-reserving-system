@@ -16,7 +16,6 @@ import core.framework.web.Request;
 public class UserAJAXWebServiceImpl implements UserAJAXWebService {
     @Inject
     UserWebService userWebService;
-
     @Inject
     Request request;
 

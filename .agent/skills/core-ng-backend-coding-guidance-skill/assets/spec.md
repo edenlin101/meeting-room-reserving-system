@@ -1247,6 +1247,15 @@ BookingWebService bookingWebService;
 ```
 instead of `@Inject BookingWebService bookingWebService;`.
 
+**Important Principle:** When multiple fields are injected consecutively using `@Inject`, there MUST NOT be any blank lines between them. For example:
+```java
+@Inject
+CompanyWebService companyWebService;
+@Inject
+RoomWebService roomWebService;
+```
+instead of having an empty line separating the injected fields.
+
 ---
 
 ## References
