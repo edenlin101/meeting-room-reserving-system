@@ -1259,6 +1259,9 @@ instead of having an empty line separating the injected fields.
 ### 19.9 Import and Class Spacing
 **Important Principle:** There MUST be exactly one blank line between the last `import` statement and the `public class` or `public interface` declaration.
 
+### 19.10 BO Sub-Package Flattening
+**Important Principle:** When organizing interface modules, DO NOT nest request/response beans under `bo.<domain>`. Instead, merge them directly into the `<domain>` package alongside the non-BO beans. This simplifies the folder structure and reduces nesting depth.
+
 ---
 
 ## References

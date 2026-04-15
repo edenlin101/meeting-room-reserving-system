@@ -1,4 +1,4 @@
-package app.resource.api.bo.room;
+package app.resource.api.room;
 import core.framework.api.web.service.QueryParam;
 
 public class BOListRoomRequest {

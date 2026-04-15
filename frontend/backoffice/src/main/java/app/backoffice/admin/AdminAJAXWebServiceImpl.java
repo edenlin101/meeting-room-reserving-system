@@ -1,6 +1,6 @@
 package app.backoffice.admin;
 import app.user.api.BOUserWebService;
-import app.user.api.bo.user.BOUpdateUserStatusRequest;
+import app.user.api.user.BOUpdateUserStatusRequest;
 import app.backoffice.api.AdminAJAXWebService;
 import app.backoffice.api.admin.AdminLoginAJAXRequest;
 import app.backoffice.api.admin.AdminLoginAJAXResponse;

@@ -1,2 +1,2 @@
-package app.resource.api.bo.company;
+package app.resource.api.company;
 public class BODeleteCompanyResponse {}

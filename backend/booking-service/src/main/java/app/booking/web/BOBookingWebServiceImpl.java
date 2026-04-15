@@ -1,7 +1,7 @@
 package app.booking.web;
 import app.booking.api.BOBookingWebService;
-import app.booking.api.bo.reservation.BOSearchReservationRequest;
-import app.booking.api.bo.reservation.BOSearchReservationResponse;
+import app.booking.api.reservation.BOSearchReservationRequest;
+import app.booking.api.reservation.BOSearchReservationResponse;
 import app.booking.api.reservation.ReservationView;
 import app.booking.domain.Reservation;
 import app.booking.service.BOBookingService;

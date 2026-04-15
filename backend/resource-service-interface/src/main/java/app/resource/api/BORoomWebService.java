@@ -1,9 +1,9 @@
 package app.resource.api;
-import app.resource.api.bo.room.BOCreateRoomRequest;
-import app.resource.api.bo.room.BOCreateRoomResponse;
-import app.resource.api.bo.room.BODeleteRoomResponse;
-import app.resource.api.bo.room.BOListRoomRequest;
-import app.resource.api.bo.room.BOListRoomResponse;
+import app.resource.api.room.BOCreateRoomRequest;
+import app.resource.api.room.BOCreateRoomResponse;
+import app.resource.api.room.BODeleteRoomResponse;
+import app.resource.api.room.BOListRoomRequest;
+import app.resource.api.room.BOListRoomResponse;
 import core.framework.api.web.service.DELETE;
 import core.framework.api.web.service.GET;
 import core.framework.api.web.service.POST;

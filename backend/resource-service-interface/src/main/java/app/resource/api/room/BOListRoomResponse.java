@@ -1,4 +1,4 @@
-package app.resource.api.bo.room;
+package app.resource.api.room;
 import app.resource.api.room.RoomView;
 import core.framework.api.json.Property;
 import core.framework.api.validate.NotNull;

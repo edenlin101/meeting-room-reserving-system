@@ -1,10 +1,10 @@
 package app.resource.web;
 import app.resource.api.BORoomWebService;
-import app.resource.api.bo.room.BOCreateRoomRequest;
-import app.resource.api.bo.room.BOCreateRoomResponse;
-import app.resource.api.bo.room.BODeleteRoomResponse;
-import app.resource.api.bo.room.BOListRoomRequest;
-import app.resource.api.bo.room.BOListRoomResponse;
+import app.resource.api.room.BOCreateRoomRequest;
+import app.resource.api.room.BOCreateRoomResponse;
+import app.resource.api.room.BODeleteRoomResponse;
+import app.resource.api.room.BOListRoomRequest;
+import app.resource.api.room.BOListRoomResponse;
 import app.resource.api.room.RoomView;
 import app.resource.domain.Room;
 import app.resource.service.BORoomService;

@@ -1,6 +1,6 @@
-package app.resource.api.bo.room;
+package app.resource.api.company;
 import core.framework.api.json.Property;
 
-public class BOCreateRoomResponse {
+public class BOCreateCompanyResponse {
     @Property(name = "id") public Long id;
 }

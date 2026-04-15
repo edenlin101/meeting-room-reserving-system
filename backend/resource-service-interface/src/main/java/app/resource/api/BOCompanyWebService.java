@@ -1,9 +1,9 @@
 package app.resource.api;
-import app.resource.api.bo.company.BOCreateCompanyRequest;
-import app.resource.api.bo.company.BOCreateCompanyResponse;
-import app.resource.api.bo.company.BODeleteCompanyResponse;
-import app.resource.api.bo.company.BOListCompanyRequest;
-import app.resource.api.bo.company.BOListCompanyResponse;
+import app.resource.api.company.BOCreateCompanyRequest;
+import app.resource.api.company.BOCreateCompanyResponse;
+import app.resource.api.company.BODeleteCompanyResponse;
+import app.resource.api.company.BOListCompanyRequest;
+import app.resource.api.company.BOListCompanyResponse;
 import core.framework.api.web.service.DELETE;
 import core.framework.api.web.service.GET;
 import core.framework.api.web.service.POST;

@@ -1,4 +1,4 @@
-package app.booking.api.bo.reservation;
+package app.booking.api.reservation;
 import core.framework.api.web.service.QueryParam;
 
 public class BOSearchReservationRequest {

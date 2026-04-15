@@ -1,10 +1,10 @@
 package app.resource.web;
 import app.resource.api.BOCompanyWebService;
-import app.resource.api.bo.company.BOCreateCompanyRequest;
-import app.resource.api.bo.company.BOCreateCompanyResponse;
-import app.resource.api.bo.company.BODeleteCompanyResponse;
-import app.resource.api.bo.company.BOListCompanyRequest;
-import app.resource.api.bo.company.BOListCompanyResponse;
+import app.resource.api.company.BOCreateCompanyRequest;
+import app.resource.api.company.BOCreateCompanyResponse;
+import app.resource.api.company.BODeleteCompanyResponse;
+import app.resource.api.company.BOListCompanyRequest;
+import app.resource.api.company.BOListCompanyResponse;
 import app.resource.api.company.CompanyView;
 import app.resource.domain.Company;
 import app.resource.service.BOCompanyService;

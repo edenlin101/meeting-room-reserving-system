@@ -1,8 +1,8 @@
 package app.user.web;
 
 import app.user.api.BOUserWebService;
-import app.user.api.bo.user.BOUpdateUserStatusRequest;
-import app.user.api.bo.user.BOUpdateUserStatusResponse;
+import app.user.api.user.BOUpdateUserStatusRequest;
+import app.user.api.user.BOUpdateUserStatusResponse;
 import app.user.service.BOUserService;
 import core.framework.inject.Inject;
 

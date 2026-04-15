@@ -1,7 +1,7 @@
 package app.backoffice.reservation;
 import app.booking.api.BOBookingWebService;
-import app.booking.api.bo.reservation.BOSearchReservationRequest;
-import app.booking.api.bo.reservation.BOSearchReservationResponse;
+import app.booking.api.reservation.BOSearchReservationRequest;
+import app.booking.api.reservation.BOSearchReservationResponse;
 import app.backoffice.api.ReservationAJAXWebService;
 import app.backoffice.api.reservation.ReservationAJAXView;
 import app.backoffice.api.reservation.SearchReservationAJAXRequest;

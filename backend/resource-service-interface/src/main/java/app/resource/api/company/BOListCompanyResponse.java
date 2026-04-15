@@ -1,4 +1,4 @@
-package app.resource.api.bo.company;
+package app.resource.api.company;
 import app.resource.api.company.CompanyView;
 import core.framework.api.json.Property;
 import core.framework.api.validate.NotNull;

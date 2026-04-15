@@ -1,2 +1,2 @@
-package app.resource.api.bo.room;
+package app.resource.api.room;
 public class BODeleteRoomResponse {}
