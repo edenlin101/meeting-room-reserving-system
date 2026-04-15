@@ -13,7 +13,7 @@ public class SchedulerModule extends Module {
         kafka().uri(requiredProperty("sys.kafka.uri"));
         kafka().publish("check-upcoming-reservation", CheckUpcomingReservationMessage.class);
 
-        NotifyUpcomingReservationsJob job = bind(NotifyUpcomingReservationsJob.class);
+        CheckUpcomingReservationsJob job = bind(CheckUpcomingReservationsJob.class);
         schedule().fixedRate("notify-upcoming-reservations", job, Duration.ofMinutes(1));
     }
 }

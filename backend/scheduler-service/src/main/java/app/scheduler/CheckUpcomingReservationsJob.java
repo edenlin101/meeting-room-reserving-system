@@ -7,7 +7,7 @@ import core.framework.scheduler.Job;
 import core.framework.scheduler.JobContext;
 import java.time.ZonedDateTime;
 
-public class NotifyUpcomingReservationsJob implements Job {
+public class CheckUpcomingReservationsJob implements Job {
     @Inject
     MessagePublisher<CheckUpcomingReservationMessage> publisher;
 
