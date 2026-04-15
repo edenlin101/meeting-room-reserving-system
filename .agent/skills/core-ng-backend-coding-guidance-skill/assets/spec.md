@@ -1262,6 +1262,9 @@ instead of having an empty line separating the injected fields.
 ### 19.10 BO Sub-Package Flattening
 **Important Principle:** When organizing interface modules, DO NOT nest request/response beans under `bo.<domain>`. Instead, merge them directly into the `<domain>` package alongside the non-BO beans. This simplifies the folder structure and reduces nesting depth.
 
+### 19.11 Import and Class Spacing
+**Important Principle:** There MUST be a space between the `import` keyword and the imported package, and exactly one space between `public class` (or `public interface`) and the class name.
+
 ---
 
 ## References
