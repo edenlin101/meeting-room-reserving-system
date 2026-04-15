@@ -1,48 +1,20 @@
 package app.scheduler;
 
-import app.booking.api.kafka.NotifyUpcomingReservationMessage;
-import core.framework.db.Database;
+import app.booking.api.kafka.CheckUpcomingReservationMessage;
 import core.framework.inject.Inject;
 import core.framework.kafka.MessagePublisher;
 import core.framework.scheduler.Job;
 import core.framework.scheduler.JobContext;
 import java.time.ZonedDateTime;
-import java.time.format.DateTimeFormatter;
-import java.util.List;
 
 public class NotifyUpcomingReservationsJob implements Job {
     @Inject
-    Database database;
-    @Inject
-    MessagePublisher<NotifyUpcomingReservationMessage> publisher;
-
-    public static class ReservationData {
-        public Long id;
-        public Long room_id;
-        public Long user_id;
-        public ZonedDateTime start_time;
-    }
+    MessagePublisher<CheckUpcomingReservationMessage> publisher;
 
     @Override
     public void execute(JobContext context) {
-        ZonedDateTime now = ZonedDateTime.now();
-        ZonedDateTime startRange = now.plusMinutes(9);
-        ZonedDateTime endRange = now.plusMinutes(11);
-
-        List<ReservationData> upcomingReservations = database.select(
-            "SELECT id, room_id, user_id, start_time FROM reservations WHERE status = ? AND start_time >= ? AND start_time < ?",
-            ReservationData.class,
-            "ACTIVE", startRange, endRange
-        );
-
-        for (ReservationData reservation : upcomingReservations) {
-            NotifyUpcomingReservationMessage message = new NotifyUpcomingReservationMessage();
-            message.reservationId = reservation.id;
-            message.userId = reservation.user_id;
-            message.roomId = reservation.room_id;
-            message.startTime = reservation.start_time.format(DateTimeFormatter.ISO_OFFSET_DATE_TIME);
-            
-            publisher.publish(String.valueOf(reservation.id), message);
-        }
+        CheckUpcomingReservationMessage message = new CheckUpcomingReservationMessage();
+        message.triggerTime = ZonedDateTime.now();
+        publisher.publish(message); // Publish without key for random distribution
     }
 }
