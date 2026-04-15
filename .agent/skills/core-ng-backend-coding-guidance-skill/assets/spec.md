@@ -1283,6 +1283,12 @@ instead of having a blank line after the opening brace.
 ### 19.15 Mandatory NotNull for Known Non-Null Fields
 **Important Principle:** In all Request, Response, View DTOs, and **Kafka message objects** within interface modules, if a field is known or intended to be non-null (e.g., identifiers, status codes, timestamps, primitive wrappers that shouldn't be null), it MUST be annotated with `@NotNull` (from `core.framework.api.validate.NotNull`). This guarantees validation at the boundary.
 
+### 19.16 Kafka Message Types and Scheduler Jobs
+**Important Principle:** The `scheduler-service` MUST NOT perform direct business data modifications. Instead, it must trigger business modules via Kafka messages. Kafka messages should be explicitly categorized into two types:
+1. **Request/Command style messages:** Typically emitted by Jobs to instruct a specific business service to perform an action. (e.g., `notify-upcoming-reservation-message`).
+2. **Event/Result style messages:** Typically emitted by business services after an action has occurred, allowing other domains to react. (e.g., `reservation-upcoming-message`, `reservation-canceled-message`).
+Naming conventions for Kafka topics and message objects MUST clearly reflect whether they are a command or an event.
+
 ---
 
 ## References
