@@ -107,6 +107,7 @@ project(":backend:booking-service") {
 
 project(":backend:notification-service") {
     dependencies {
+        "implementation"(project(":backend:booking-service-interface"))
     }
 }
 
