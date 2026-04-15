@@ -1274,6 +1274,9 @@ public interface MyWebService {
 ```
 instead of having a blank line after the opening brace.
 
+### 19.13 Singular Nouns in Interfaces
+**Important Principle:** In interface definitions (both URL paths and method names), ALWAYS use singular nouns instead of plurals. For example, use `/ajax/company/list` instead of `/ajax/companies/list`, and name the method `listCompany` instead of `listCompanies`.
+
 ---
 
 ## References

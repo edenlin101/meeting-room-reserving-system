@@ -20,42 +20,42 @@ import core.framework.api.web.service.PathParam;
 
 public interface AdminWebService {
     @GET
-    @Path("/admin/companies")
-    CompanyListResponse listCompanies();
+    @Path("/admin/company")
+    CompanyListResponse listCompany();
 
     @POST
-    @Path("/admin/companies")
+    @Path("/admin/company")
     CompanyView createCompany(CompanyRequest request);
 
     @DELETE
-    @Path("/admin/companies/:id")
+    @Path("/admin/company/:id")
     void removeCompany(@PathParam("id") Long id);
 
     @GET
-    @Path("/admin/rooms")
-    RoomListResponse listRooms(SearchRoomsRequest request);
+    @Path("/admin/room")
+    RoomListResponse listRoom(SearchRoomsRequest request);
 
     @POST
-    @Path("/admin/rooms")
+    @Path("/admin/room")
     RoomView createRoom(RoomRequest request);
 
     @DELETE
-    @Path("/admin/rooms/:id")
+    @Path("/admin/room/:id")
     void removeRoom(@PathParam("id") Long id);
 
     @GET
-    @Path("/admin/reservations")
-    ReservationListResponse searchReservations(SearchReservationsRequest request);
+    @Path("/admin/reservation")
+    ReservationListResponse searchReservation(SearchReservationsRequest request);
 
     @GET
-    @Path("/admin/users")
-    UserListResponse listUsers(SearchUsersRequest request);
+    @Path("/admin/user")
+    UserListResponse listUser(SearchUsersRequest request);
 
     @PUT
-    @Path("/admin/users/:id/activate")
+    @Path("/admin/user/:id/activate")
     void activateUser(@PathParam("id") Long id);
 
     @PUT
-    @Path("/admin/users/:id/deactivate")
+    @Path("/admin/user/:id/deactivate")
     void deactivateUser(@PathParam("id") Long id);
 }

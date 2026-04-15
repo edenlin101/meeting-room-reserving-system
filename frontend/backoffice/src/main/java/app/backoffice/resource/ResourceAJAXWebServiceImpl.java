@@ -48,7 +48,7 @@ public class ResourceAJAXWebServiceImpl implements ResourceAJAXWebService {
     }
 
     @Override
-    public ListCompanyAJAXResponse listCompanies(ListCompanyAJAXRequest request) {
+    public ListCompanyAJAXResponse listCompany(ListCompanyAJAXRequest request) {
         BOListCompanyResponse boResponse = boCompanyWebService.list(new BOListCompanyRequest());
         ListCompanyAJAXResponse ajaxResponse = new ListCompanyAJAXResponse();
         ajaxResponse.companies = boResponse.companies.stream().map(c -> {
@@ -79,7 +79,7 @@ public class ResourceAJAXWebServiceImpl implements ResourceAJAXWebService {
     }
 
     @Override
-    public ListRoomAJAXResponse listRooms(ListRoomAJAXRequest request) {
+    public ListRoomAJAXResponse listRoom(ListRoomAJAXRequest request) {
         BOListRoomRequest boRequest = new BOListRoomRequest();
         boRequest.companyId = request.companyId;
         BOListRoomResponse boResponse = boRoomWebService.list(boRequest);

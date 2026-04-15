@@ -29,7 +29,7 @@ public class AdminWebServiceImpl implements AdminWebService {
     UserService userService;
 
     @Override
-    public CompanyListResponse listCompanies() {
+    public CompanyListResponse listCompany() {
         CompanyListResponse response = new CompanyListResponse();
         response.items = companyService.search();
         return response;
@@ -46,7 +46,7 @@ public class AdminWebServiceImpl implements AdminWebService {
     }
 
     @Override
-    public RoomListResponse listRooms(SearchRoomsRequest request) {
+    public RoomListResponse listRoom(SearchRoomsRequest request) {
         RoomListResponse response = new RoomListResponse();
         response.items = meetingRoomService.findByCompany(request.companyId);
         return response;
@@ -63,14 +63,14 @@ public class AdminWebServiceImpl implements AdminWebService {
     }
 
     @Override
-    public ReservationListResponse searchReservations(SearchReservationsRequest request) {
+    public ReservationListResponse searchReservation(SearchReservationsRequest request) {
         ReservationListResponse response = new ReservationListResponse();
         response.items = reservationService.searchAll();
         return response;
     }
 
     @Override
-    public UserListResponse listUsers(SearchUsersRequest request) {
+    public UserListResponse listUser(SearchUsersRequest request) {
         UserListResponse response = new UserListResponse();
         response.items = userService.search(request.companyId);
         return response;

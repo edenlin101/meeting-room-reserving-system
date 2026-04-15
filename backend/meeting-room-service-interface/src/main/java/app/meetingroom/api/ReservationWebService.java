@@ -12,14 +12,14 @@ import core.framework.api.web.service.PathParam;
 
 public interface ReservationWebService {
     @GET
-    @Path("/rooms/:id/reservations")
+    @Path("/room/:id/reservation")
     ReservationListResponse search(@PathParam("id") Long roomId, SearchReservationRequest request);
 
     @POST
-    @Path("/rooms/:id/reservations")
+    @Path("/room/:id/reservation")
     ReservationView create(@PathParam("id") Long roomId, ReservationRequest request);
 
     @DELETE
-    @Path("/reservations/:id")
+    @Path("/reservation/:id")
     void cancel(@PathParam("id") Long id);
 }

@@ -26,7 +26,7 @@ public interface ResourceAJAXWebService {
 
     @GET
     @Path("/ajax/company/list")
-    ListCompanyAJAXResponse listCompanies(ListCompanyAJAXRequest request);
+    ListCompanyAJAXResponse listCompany(ListCompanyAJAXRequest request);
 
     @POST
     @Path("/ajax/room/create")
@@ -38,5 +38,5 @@ public interface ResourceAJAXWebService {
 
     @GET
     @Path("/ajax/room/list")
-    ListRoomAJAXResponse listRooms(ListRoomAJAXRequest request);
+    ListRoomAJAXResponse listRoom(ListRoomAJAXRequest request);
 }

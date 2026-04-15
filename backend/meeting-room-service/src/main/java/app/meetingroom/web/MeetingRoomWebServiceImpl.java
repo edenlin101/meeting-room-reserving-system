@@ -11,7 +11,7 @@ public class MeetingRoomWebServiceImpl implements MeetingRoomWebService {
     MeetingRoomService meetingRoomService;
 
     @Override
-    public RoomListResponse listRooms(Long companyId) {
+    public RoomListResponse listRoom(Long companyId) {
         RoomListResponse response = new RoomListResponse();
         response.items = meetingRoomService.findByCompany(companyId);
         return response;

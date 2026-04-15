@@ -8,10 +8,10 @@ import core.framework.api.web.service.PathParam;
 
 public interface MeetingRoomWebService {
     @GET
-    @Path("/company/:companyId/rooms")
-    RoomListResponse listRooms(@PathParam("companyId") Long companyId);
+    @Path("/company/:companyId/room")
+    RoomListResponse listRoom(@PathParam("companyId") Long companyId);
 
     @GET
-    @Path("/rooms/:id")
+    @Path("/room/:id")
     RoomView get(@PathParam("id") Long id);
 }

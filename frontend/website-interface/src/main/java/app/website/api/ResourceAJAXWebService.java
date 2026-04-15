@@ -9,9 +9,9 @@ import core.framework.api.web.service.Path;
 public interface ResourceAJAXWebService {
     @GET
     @Path("/ajax/company/list")
-    ListCompanyAJAXResponse listCompanies(ListCompanyAJAXRequest request);
+    ListCompanyAJAXResponse listCompany(ListCompanyAJAXRequest request);
 
     @GET
     @Path("/ajax/room/list")
-    ListRoomAJAXResponse listRooms(ListRoomAJAXRequest request);
+    ListRoomAJAXResponse listRoom(ListRoomAJAXRequest request);
 }
