@@ -3,12 +3,12 @@ import app.user.api.BOUserWebService;
 import app.resource.api.BOCompanyWebService;
 import app.resource.api.BORoomWebService;
 import app.booking.api.BOBookingWebService;
-import app.backoffice.admin.api.AdminAJAXWebService;
-import app.backoffice.admin.web.AdminAJAXWebServiceImpl;
-import app.backoffice.resource.api.ResourceAJAXWebService;
-import app.backoffice.resource.web.ResourceAJAXWebServiceImpl;
-import app.backoffice.reservation.api.ReservationAJAXWebService;
-import app.backoffice.reservation.web.ReservationAJAXWebServiceImpl;
+import app.backoffice.api.AdminAJAXWebService;
+import app.backoffice.admin.AdminAJAXWebServiceImpl;
+import app.backoffice.api.ResourceAJAXWebService;
+import app.backoffice.resource.ResourceAJAXWebServiceImpl;
+import app.backoffice.api.ReservationAJAXWebService;
+import app.backoffice.reservation.ReservationAJAXWebServiceImpl;
 import core.framework.module.Module;
 public class BackofficeModule extends Module {
     @Override

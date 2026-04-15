@@ -2,7 +2,6 @@ package app.scheduler;
 
 import app.booking.api.kafka.ReservationUpcomingMessage;
 import core.framework.db.Database;
-import core.framework.db.Repository;
 import core.framework.inject.Inject;
 import core.framework.kafka.MessagePublisher;
 import core.framework.scheduler.Job;

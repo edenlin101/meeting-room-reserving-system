@@ -113,6 +113,7 @@ project(":backend:notification-service") {
 
 project(":backend:scheduler-service") {
     dependencies {
+        "implementation"(project(":backend:booking-service-interface"))
     }
 }
 

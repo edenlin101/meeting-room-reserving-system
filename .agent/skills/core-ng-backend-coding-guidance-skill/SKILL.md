@@ -19,6 +19,7 @@ This skill should be **automatically activated** when:
 1. The user requests to write or modify Java code
 2. The project uses Core-NG framework
 
+
 **How to detect Core-NG framework usage:**
 - Check for `core.framework` imports in existing Java files
 - Look for `Module` classes extending `core.framework.module.Module`
