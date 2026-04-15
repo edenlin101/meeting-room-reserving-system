@@ -1281,7 +1281,7 @@ instead of having a blank line after the opening brace.
 **Important Principle:** In interface modules, do NOT place Request, Response, or View beans in a separate `dto` package (e.g., avoid `app.meetingroom.api.dto`). Instead, they MUST be placed in a package named after their specific domain or feature alongside the related services, or directly under the domain package if following the gateway structure (e.g., `app.meetingroom.api.room`). This follows the earlier rule: "request and response files MUST be placed in a separate package/folder based on their domain, instead of being directly under the `api` package."
 
 ### 19.15 Mandatory NotNull for Known Non-Null Fields
-**Important Principle:** In all Request, Response, and View DTOs within interface modules, if a field is known or intended to be non-null (e.g., identifiers, status codes, timestamps, primitive wrappers that shouldn't be null), it MUST be annotated with `@NotNull` (from `core.framework.api.validate.NotNull`). This guarantees validation at the boundary.
+**Important Principle:** In all Request, Response, View DTOs, and **Kafka message objects** within interface modules, if a field is known or intended to be non-null (e.g., identifiers, status codes, timestamps, primitive wrappers that shouldn't be null), it MUST be annotated with `@NotNull` (from `core.framework.api.validate.NotNull`). This guarantees validation at the boundary.
 
 ---
 
