@@ -7,7 +7,6 @@ import core.framework.api.web.service.Path;
 import core.framework.api.web.service.PathParam;
 
 public interface MeetingRoomWebService {
-
     @GET
     @Path("/company/:companyId/rooms")
     RoomListResponse listRooms(@PathParam("companyId") Long companyId);

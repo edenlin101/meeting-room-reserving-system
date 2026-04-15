@@ -11,7 +11,6 @@ import core.framework.api.web.service.Path;
 import core.framework.api.web.service.PathParam;
 
 public interface ReservationWebService {
-
     @GET
     @Path("/rooms/:id/reservations")
     ReservationListResponse search(@PathParam("id") Long roomId, SearchReservationRequest request);

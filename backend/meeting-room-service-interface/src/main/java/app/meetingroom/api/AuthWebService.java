@@ -8,7 +8,6 @@ import core.framework.api.web.service.POST;
 import core.framework.api.web.service.Path;
 
 public interface AuthWebService {
-
     @POST
     @Path("/auth/register")
     UserView register(RegisterRequest request);

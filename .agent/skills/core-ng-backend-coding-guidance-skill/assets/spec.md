@@ -1265,6 +1265,15 @@ instead of having an empty line separating the injected fields.
 ### 19.11 Import and Class Spacing
 **Important Principle:** There MUST be a space between the `import` keyword and the imported package, and exactly one space between `public class` (or `public interface`) and the class name.
 
+### 19.12 Interface Annotation Spacing
+**Important Principle:** In an interface definition, the first annotation (e.g., `@GET`, `@POST`) MUST immediately follow the interface declaration without any blank lines in between. For example:
+```java
+public interface MyWebService {
+    @GET
+    ...
+```
+instead of having a blank line after the opening brace.
+
 ---
 
 ## References

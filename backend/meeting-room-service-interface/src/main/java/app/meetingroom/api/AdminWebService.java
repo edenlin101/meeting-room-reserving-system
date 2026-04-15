@@ -19,7 +19,6 @@ import core.framework.api.web.service.Path;
 import core.framework.api.web.service.PathParam;
 
 public interface AdminWebService {
-
     @GET
     @Path("/admin/companies")
     CompanyListResponse listCompanies();
