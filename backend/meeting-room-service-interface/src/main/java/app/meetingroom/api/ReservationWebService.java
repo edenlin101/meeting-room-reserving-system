@@ -1,9 +1,9 @@
 package app.meetingroom.api;
 
-import app.meetingroom.api.dto.ReservationListResponse;
-import app.meetingroom.api.dto.ReservationRequest;
-import app.meetingroom.api.dto.ReservationView;
-import app.meetingroom.api.dto.SearchReservationRequest;
+import app.meetingroom.api.reservation.ReservationListResponse;
+import app.meetingroom.api.reservation.ReservationRequest;
+import app.meetingroom.api.reservation.ReservationView;
+import app.meetingroom.api.reservation.SearchReservationRequest;
 import core.framework.api.web.service.GET;
 import core.framework.api.web.service.POST;
 import core.framework.api.web.service.DELETE;

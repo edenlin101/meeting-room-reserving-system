@@ -1,4 +1,4 @@
-package app.meetingroom.api.dto;
+package app.meetingroom.api.user;
 
 import core.framework.api.json.Property;
 

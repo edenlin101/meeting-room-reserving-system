@@ -1,16 +1,16 @@
 package app.meetingroom.api;
 
-import app.meetingroom.api.dto.CompanyListResponse;
-import app.meetingroom.api.dto.CompanyRequest;
-import app.meetingroom.api.dto.CompanyView;
-import app.meetingroom.api.dto.ReservationListResponse;
-import app.meetingroom.api.dto.RoomListResponse;
-import app.meetingroom.api.dto.RoomRequest;
-import app.meetingroom.api.dto.RoomView;
-import app.meetingroom.api.dto.SearchReservationsRequest;
-import app.meetingroom.api.dto.SearchRoomsRequest;
-import app.meetingroom.api.dto.SearchUsersRequest;
-import app.meetingroom.api.dto.UserListResponse;
+import app.meetingroom.api.company.CompanyListResponse;
+import app.meetingroom.api.company.CompanyRequest;
+import app.meetingroom.api.company.CompanyView;
+import app.meetingroom.api.reservation.ReservationListResponse;
+import app.meetingroom.api.room.RoomListResponse;
+import app.meetingroom.api.room.RoomRequest;
+import app.meetingroom.api.room.RoomView;
+import app.meetingroom.api.reservation.SearchReservationsRequest;
+import app.meetingroom.api.room.SearchRoomsRequest;
+import app.meetingroom.api.user.SearchUsersRequest;
+import app.meetingroom.api.user.UserListResponse;
 import core.framework.api.web.service.DELETE;
 import core.framework.api.web.service.GET;
 import core.framework.api.web.service.POST;

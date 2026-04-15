@@ -1,4 +1,4 @@
-package app.meetingroom.api.dto;
+package app.meetingroom.api.reservation;
 
 import core.framework.api.web.service.QueryParam;
 

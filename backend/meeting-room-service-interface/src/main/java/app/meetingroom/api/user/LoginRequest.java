@@ -1,10 +1,10 @@
-package app.meetingroom.api.dto;
+package app.meetingroom.api.user;
 
 import core.framework.api.json.Property;
 import core.framework.api.validate.NotBlank;
 import core.framework.api.validate.NotNull;
 
-public class RegisterRequest {
+public class LoginRequest {
     @NotNull
     @NotBlank
     @Property(name = "username")
@@ -14,8 +14,4 @@ public class RegisterRequest {
     @NotBlank
     @Property(name = "password")
     public String password;
-
-    @NotNull
-    @Property(name = "company_id")
-    public Long companyId;
 }

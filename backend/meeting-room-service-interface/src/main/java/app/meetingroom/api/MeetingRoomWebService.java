@@ -1,7 +1,7 @@
 package app.meetingroom.api;
 
-import app.meetingroom.api.dto.RoomListResponse;
-import app.meetingroom.api.dto.RoomView;
+import app.meetingroom.api.room.RoomListResponse;
+import app.meetingroom.api.room.RoomView;
 import core.framework.api.web.service.GET;
 import core.framework.api.web.service.Path;
 import core.framework.api.web.service.PathParam;

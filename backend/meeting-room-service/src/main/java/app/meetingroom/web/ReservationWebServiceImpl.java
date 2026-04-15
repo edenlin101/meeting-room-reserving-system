@@ -1,10 +1,10 @@
 package app.meetingroom.web;
 
 import app.meetingroom.api.ReservationWebService;
-import app.meetingroom.api.dto.ReservationListResponse;
-import app.meetingroom.api.dto.ReservationRequest;
-import app.meetingroom.api.dto.ReservationView;
-import app.meetingroom.api.dto.SearchReservationRequest;
+import app.meetingroom.api.reservation.ReservationListResponse;
+import app.meetingroom.api.reservation.ReservationRequest;
+import app.meetingroom.api.reservation.ReservationView;
+import app.meetingroom.api.reservation.SearchReservationRequest;
 import app.meetingroom.service.ReservationService;
 import core.framework.inject.Inject;
 

@@ -1,6 +1,6 @@
 package app.meetingroom.service;
 
-import app.meetingroom.api.dto.UserView;
+import app.meetingroom.api.user.UserView;
 import app.meetingroom.domain.User;
 import app.meetingroom.domain.UserStatus;
 import core.framework.db.Query;

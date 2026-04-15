@@ -1,10 +1,10 @@
 package app.meetingroom.web;
 
 import app.meetingroom.api.AuthWebService;
-import app.meetingroom.api.dto.LoginRequest;
-import app.meetingroom.api.dto.LoginResponse;
-import app.meetingroom.api.dto.RegisterRequest;
-import app.meetingroom.api.dto.UserView;
+import app.meetingroom.api.user.LoginRequest;
+import app.meetingroom.api.user.LoginResponse;
+import app.meetingroom.api.user.RegisterRequest;
+import app.meetingroom.api.user.UserView;
 import app.meetingroom.service.UserService;
 import core.framework.inject.Inject;
 

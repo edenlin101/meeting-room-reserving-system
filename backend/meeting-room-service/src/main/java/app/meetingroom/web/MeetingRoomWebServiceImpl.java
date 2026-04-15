@@ -1,8 +1,8 @@
 package app.meetingroom.web;
 
 import app.meetingroom.api.MeetingRoomWebService;
-import app.meetingroom.api.dto.RoomListResponse;
-import app.meetingroom.api.dto.RoomView;
+import app.meetingroom.api.room.RoomListResponse;
+import app.meetingroom.api.room.RoomView;
 import app.meetingroom.service.MeetingRoomService;
 import core.framework.inject.Inject;
 

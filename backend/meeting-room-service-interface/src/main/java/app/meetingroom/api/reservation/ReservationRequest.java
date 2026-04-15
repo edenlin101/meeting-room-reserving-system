@@ -1,4 +1,4 @@
-package app.meetingroom.api.dto;
+package app.meetingroom.api.reservation;
 
 import core.framework.api.json.Property;
 import core.framework.api.validate.NotNull;

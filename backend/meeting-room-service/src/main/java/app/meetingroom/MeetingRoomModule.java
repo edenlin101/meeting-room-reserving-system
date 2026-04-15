@@ -20,10 +20,7 @@ import app.meetingroom.web.AdminWebServiceImpl;
 import app.meetingroom.web.AuthWebServiceImpl;
 import app.meetingroom.web.MeetingRoomWebServiceImpl;
 import app.meetingroom.web.ReservationWebServiceImpl;
-import core.framework.kafka.MessageHandler;
 import core.framework.module.Module;
-
-import java.time.Duration;
 
 public class MeetingRoomModule extends Module {
     @Override

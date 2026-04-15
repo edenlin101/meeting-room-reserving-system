@@ -1,6 +1,6 @@
 package app.meetingroom.service;
 
-import app.meetingroom.api.dto.CompanyView;
+import app.meetingroom.api.company.CompanyView;
 import app.meetingroom.domain.Company;
 import app.meetingroom.domain.CompanyStatus;
 import core.framework.db.Query;

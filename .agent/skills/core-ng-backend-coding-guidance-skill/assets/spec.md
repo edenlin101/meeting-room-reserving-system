@@ -1277,6 +1277,9 @@ instead of having a blank line after the opening brace.
 ### 19.13 Singular Nouns in Interfaces
 **Important Principle:** In interface definitions (both URL paths and method names), ALWAYS use singular nouns instead of plurals. For example, use `/ajax/company/list` instead of `/ajax/companies/list`, and name the method `listCompany` instead of `listCompanies`.
 
+### 19.14 No Separate DTO Package
+**Important Principle:** In interface modules, do NOT place Request, Response, or View beans in a separate `dto` package (e.g., avoid `app.meetingroom.api.dto`). Instead, they MUST be placed in a package named after their specific domain or feature alongside the related services, or directly under the domain package if following the gateway structure (e.g., `app.meetingroom.api.room`). This follows the earlier rule: "request and response files MUST be placed in a separate package/folder based on their domain, instead of being directly under the `api` package."
+
 ---
 
 ## References

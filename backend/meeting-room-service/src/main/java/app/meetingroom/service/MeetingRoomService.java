@@ -1,7 +1,7 @@
 package app.meetingroom.service;
 
-import app.meetingroom.api.dto.RoomRequest;
-import app.meetingroom.api.dto.RoomView;
+import app.meetingroom.api.room.RoomRequest;
+import app.meetingroom.api.room.RoomView;
 import app.meetingroom.domain.Room;
 import app.meetingroom.domain.RoomStatus;
 import core.framework.db.Query;
