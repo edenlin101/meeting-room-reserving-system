@@ -9,7 +9,8 @@ import core.framework.inject.Inject;
 import java.util.List;
 import java.util.stream.Collectors;
 public class RoomWebServiceImpl implements RoomWebService {
-    @Inject RoomService roomService;
+    @Inject
+    RoomService roomService;
 
     @Override
     public ListRoomResponse list(ListRoomRequest request) {

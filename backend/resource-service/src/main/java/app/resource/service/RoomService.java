@@ -5,7 +5,8 @@ import core.framework.db.Repository;
 import core.framework.inject.Inject;
 import java.util.List;
 public class RoomService {
-    @Inject Repository<Room> roomRepository;
+    @Inject
+    Repository<Room> roomRepository;
     
     public List<Room> list(Long companyId) {
         if (companyId != null) {

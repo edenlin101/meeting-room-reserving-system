@@ -15,8 +15,10 @@ import app.website.api.room.RoomAJAXView;
 import core.framework.inject.Inject;
 import java.util.stream.Collectors;
 public class ResourceAJAXWebServiceImpl implements ResourceAJAXWebService {
-    @Inject CompanyWebService companyWebService;
-    @Inject RoomWebService roomWebService;
+    @Inject
+    CompanyWebService companyWebService;
+    @Inject
+    RoomWebService roomWebService;
     
     @Override
     public ListCompanyAJAXResponse listCompanies(ListCompanyAJAXRequest request) {

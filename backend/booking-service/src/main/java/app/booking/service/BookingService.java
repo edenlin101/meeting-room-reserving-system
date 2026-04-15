@@ -9,7 +9,8 @@ import java.time.ZonedDateTime;
 import java.util.List;
 
 public class BookingService {
-    @Inject Repository<Reservation> reservationRepository;
+    @Inject
+    Repository<Reservation> reservationRepository;
 
     public List<Reservation> getReservations(Long roomId, ZonedDateTime date) {
         ZonedDateTime startOfDay = date.toLocalDate().atStartOfDay(date.getZone());

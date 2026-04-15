@@ -6,7 +6,8 @@ import core.framework.db.Query;
 import java.util.List;
 
 public class BOBookingService {
-    @Inject Repository<Reservation> reservationRepository;
+    @Inject
+    Repository<Reservation> reservationRepository;
 
     public List<Reservation> search(Long companyId, Long roomId) {
         Query<Reservation> query = reservationRepository.select();

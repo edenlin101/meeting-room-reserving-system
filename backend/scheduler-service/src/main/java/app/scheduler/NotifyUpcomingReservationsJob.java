@@ -11,8 +11,10 @@ import java.time.format.DateTimeFormatter;
 import java.util.List;
 
 public class NotifyUpcomingReservationsJob implements Job {
-    @Inject Database database;
-    @Inject MessagePublisher<ReservationUpcomingMessage> publisher;
+    @Inject
+    Database database;
+    @Inject
+    MessagePublisher<ReservationUpcomingMessage> publisher;
 
     public static class ReservationData {
         public Long id;

@@ -14,7 +14,8 @@ import java.util.stream.Collectors;
 import java.util.List;
 
 public class BookingWebServiceImpl implements BookingWebService {
-    @Inject BookingService bookingService;
+    @Inject
+    BookingService bookingService;
 
     @Override
     public GetCalendarResponse calendar(GetCalendarRequest request) {

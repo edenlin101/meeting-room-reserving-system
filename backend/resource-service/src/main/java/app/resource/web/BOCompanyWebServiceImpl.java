@@ -12,7 +12,8 @@ import core.framework.inject.Inject;
 import java.util.List;
 import java.util.stream.Collectors;
 public class BOCompanyWebServiceImpl implements BOCompanyWebService {
-    @Inject BOCompanyService boCompanyService;
+    @Inject
+    BOCompanyService boCompanyService;
 
     @Override
     public BOCreateCompanyResponse create(BOCreateCompanyRequest request) {

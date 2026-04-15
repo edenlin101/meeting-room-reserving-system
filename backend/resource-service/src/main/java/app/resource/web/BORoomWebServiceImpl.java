@@ -12,7 +12,8 @@ import core.framework.inject.Inject;
 import java.util.List;
 import java.util.stream.Collectors;
 public class BORoomWebServiceImpl implements BORoomWebService {
-    @Inject BORoomService boRoomService;
+    @Inject
+    BORoomService boRoomService;
 
     @Override
     public BOCreateRoomResponse create(BOCreateRoomRequest request) {

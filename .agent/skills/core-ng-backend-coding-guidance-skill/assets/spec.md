@@ -1239,6 +1239,14 @@ Operations for administrators in the backend.
 ### 19.7 Gateway Package Structure
 **Important Principle:** Gateway service modules do NOT need a `web` package suffix for their implementations (e.g. use `app.website.user` instead of `app.website.user.web`). Furthermore, in gateway interface modules, the `api` package should be located at the common parent node for all domains (e.g. `app.website.api.user` instead of `app.website.user.api.user`). This mirrors the structure of internal microservices which also place their interfaces under a common `api` package.
 
+### 19.8 Inject Annotation Format
+**Important Principle:** When using `@Inject` for field injection, the annotation MUST be placed on a separate line above the field declaration, not on the same line. For example, use:
+```java
+@Inject
+BookingWebService bookingWebService;
+```
+instead of `@Inject BookingWebService bookingWebService;`.
+
 ---
 
 ## References

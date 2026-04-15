@@ -10,7 +10,8 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 public class BOBookingWebServiceImpl implements BOBookingWebService {
-    @Inject BOBookingService boBookingService;
+    @Inject
+    BOBookingService boBookingService;
 
     @Override
     public BOSearchReservationResponse list(BOSearchReservationRequest request) {

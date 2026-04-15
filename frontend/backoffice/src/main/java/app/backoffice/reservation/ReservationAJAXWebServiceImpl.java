@@ -9,7 +9,8 @@ import app.backoffice.api.reservation.SearchReservationAJAXResponse;
 import core.framework.inject.Inject;
 import java.util.stream.Collectors;
 public class ReservationAJAXWebServiceImpl implements ReservationAJAXWebService {
-    @Inject BOBookingWebService boBookingWebService;
+    @Inject
+    BOBookingWebService boBookingWebService;
 
     @Override
     public SearchReservationAJAXResponse search(SearchReservationAJAXRequest request) {

@@ -7,7 +7,8 @@ import core.framework.web.exception.NotFoundException;
 import java.time.ZonedDateTime;
 import java.util.List;
 public class BORoomService {
-    @Inject Repository<Room> roomRepository;
+    @Inject
+    Repository<Room> roomRepository;
     
     public Room create(Long companyId, String name, Integer capacity) {
         Room room = new Room();

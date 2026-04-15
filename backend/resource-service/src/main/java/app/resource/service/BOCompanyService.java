@@ -7,7 +7,8 @@ import core.framework.web.exception.NotFoundException;
 import java.time.ZonedDateTime;
 import java.util.List;
 public class BOCompanyService {
-    @Inject Repository<Company> companyRepository;
+    @Inject
+    Repository<Company> companyRepository;
     
     public Company create(String name) {
         Company company = new Company();

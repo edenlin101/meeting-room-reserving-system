@@ -26,8 +26,10 @@ import core.framework.inject.Inject;
 import java.util.stream.Collectors;
 
 public class ResourceAJAXWebServiceImpl implements ResourceAJAXWebService {
-    @Inject BOCompanyWebService boCompanyWebService;
-    @Inject BORoomWebService boRoomWebService;
+    @Inject
+    BOCompanyWebService boCompanyWebService;
+    @Inject
+    BORoomWebService boRoomWebService;
 
     @Override
     public CreateCompanyAJAXResponse createCompany(CreateCompanyAJAXRequest request) {

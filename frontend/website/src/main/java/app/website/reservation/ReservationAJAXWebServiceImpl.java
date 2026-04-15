@@ -18,8 +18,10 @@ import core.framework.web.Request;
 import core.framework.web.exception.UnauthorizedException;
 import java.util.stream.Collectors;
 public class ReservationAJAXWebServiceImpl implements ReservationAJAXWebService {
-    @Inject BookingWebService bookingWebService;
-    @Inject Request httpRequest;
+    @Inject
+    BookingWebService bookingWebService;
+    @Inject
+    Request httpRequest;
     
     private Long currentUserId() {
         return Long.valueOf(httpRequest.session().get("userId").orElseThrow(() -> new UnauthorizedException("User not logged in")));
