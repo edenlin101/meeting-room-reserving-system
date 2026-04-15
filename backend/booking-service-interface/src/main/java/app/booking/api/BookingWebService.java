@@ -8,6 +8,7 @@ import app.booking.api.reservation.ReserveRoomResponse;
 import core.framework.api.web.service.GET;
 import core.framework.api.web.service.POST;
 import core.framework.api.web.service.Path;
+
 public interface BookingWebService {
     @GET @Path("/reservation/calendar") GetCalendarResponse calendar(GetCalendarRequest request);
     @POST @Path("/reservation/reserve") ReserveRoomResponse reserve(ReserveRoomRequest request);

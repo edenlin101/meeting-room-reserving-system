@@ -2,6 +2,7 @@ package app.booking.api.reservation;
 import core.framework.api.json.Property;
 import core.framework.api.validate.NotNull;
 import java.time.ZonedDateTime;
+
 public class ReservationView {
     @NotNull @Property(name = "id") public Long id;
     @NotNull @Property(name = "room_id") public Long roomId;

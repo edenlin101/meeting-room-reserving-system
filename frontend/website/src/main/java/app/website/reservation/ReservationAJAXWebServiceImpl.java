@@ -17,6 +17,7 @@ import core.framework.inject.Inject;
 import core.framework.web.Request;
 import core.framework.web.exception.UnauthorizedException;
 import java.util.stream.Collectors;
+
 public class ReservationAJAXWebServiceImpl implements ReservationAJAXWebService {
     @Inject
     BookingWebService bookingWebService;

@@ -10,6 +10,7 @@ import app.backoffice.resource.ResourceAJAXWebServiceImpl;
 import app.backoffice.api.ReservationAJAXWebService;
 import app.backoffice.reservation.ReservationAJAXWebServiceImpl;
 import core.framework.module.Module;
+
 public class BackofficeModule extends Module {
     @Override
     protected void initialize() {

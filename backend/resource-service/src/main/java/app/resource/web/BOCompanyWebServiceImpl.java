@@ -11,6 +11,7 @@ import app.resource.service.BOCompanyService;
 import core.framework.inject.Inject;
 import java.util.List;
 import java.util.stream.Collectors;
+
 public class BOCompanyWebServiceImpl implements BOCompanyWebService {
     @Inject
     BOCompanyService boCompanyService;

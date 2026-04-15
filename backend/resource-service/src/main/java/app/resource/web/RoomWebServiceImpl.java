@@ -8,6 +8,7 @@ import app.resource.service.RoomService;
 import core.framework.inject.Inject;
 import java.util.List;
 import java.util.stream.Collectors;
+
 public class RoomWebServiceImpl implements RoomWebService {
     @Inject
     RoomService roomService;

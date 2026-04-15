@@ -11,6 +11,7 @@ import app.resource.service.BORoomService;
 import core.framework.inject.Inject;
 import java.util.List;
 import java.util.stream.Collectors;
+
 public class BORoomWebServiceImpl implements BORoomWebService {
     @Inject
     BORoomService boRoomService;

@@ -3,6 +3,7 @@ import core.framework.db.Column;
 import core.framework.db.PrimaryKey;
 import core.framework.db.Table;
 import java.time.ZonedDateTime;
+
 @Table(name = "rooms")
 public class Room {
     @PrimaryKey(autoIncrement = true)

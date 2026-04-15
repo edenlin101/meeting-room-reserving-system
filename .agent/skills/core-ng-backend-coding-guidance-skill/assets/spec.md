@@ -1256,6 +1256,9 @@ RoomWebService roomWebService;
 ```
 instead of having an empty line separating the injected fields.
 
+### 19.9 Import and Class Spacing
+**Important Principle:** There MUST be exactly one blank line between the last `import` statement and the `public class` or `public interface` declaration.
+
 ---
 
 ## References

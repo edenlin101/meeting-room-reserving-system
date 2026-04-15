@@ -9,6 +9,7 @@ import core.framework.api.web.service.GET;
 import core.framework.api.web.service.POST;
 import core.framework.api.web.service.Path;
 import core.framework.api.web.service.PathParam;
+
 public interface BOCompanyWebService {
     @POST @Path("/bo/company") BOCreateCompanyResponse create(BOCreateCompanyRequest request);
     @DELETE @Path("/bo/company/:id") BODeleteCompanyResponse delete(@PathParam("id") Long id);

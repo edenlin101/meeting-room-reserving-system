@@ -4,6 +4,7 @@ import app.resource.domain.CompanyStatus;
 import core.framework.db.Repository;
 import core.framework.inject.Inject;
 import java.util.List;
+
 public class CompanyService {
     @Inject
     Repository<Company> companyRepository;

@@ -6,6 +6,7 @@ import app.backoffice.api.user.UpdateUserStatusAJAXResponse;
 import core.framework.api.web.service.POST;
 import core.framework.api.web.service.PUT;
 import core.framework.api.web.service.Path;
+
 public interface AdminAJAXWebService {
     @POST
     @Path("/ajax/admin/login")
