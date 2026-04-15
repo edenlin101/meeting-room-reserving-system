@@ -1,0 +1,12 @@
+package app.backoffice.resource.api.company;
+import core.framework.api.json.Property;
+import core.framework.api.validate.NotNull;
+public class CompanyAJAXView {
+    @NotNull
+    @Property(name = "id")
+    public Long id;
+
+    @NotNull
+    @Property(name = "name")
+    public String name;
+}

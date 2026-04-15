@@ -126,6 +126,7 @@ project(":frontend:website") {
 
 project(":frontend:backoffice") {
     dependencies {
+        "implementation"(project(":frontend:backoffice-interface"))
         "implementation"(project(":backend:user-service-interface"))
         "implementation"(project(":backend:resource-service-interface"))
         "implementation"(project(":backend:booking-service-interface"))
