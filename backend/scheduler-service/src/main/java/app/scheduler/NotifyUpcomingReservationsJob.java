@@ -1,6 +1,6 @@
 package app.scheduler;
 
-import app.booking.api.kafka.ReservationUpcomingMessage;
+import app.booking.api.kafka.NotifyUpcomingReservationMessage;
 import core.framework.db.Database;
 import core.framework.inject.Inject;
 import core.framework.kafka.MessagePublisher;
@@ -14,7 +14,7 @@ public class NotifyUpcomingReservationsJob implements Job {
     @Inject
     Database database;
     @Inject
-    MessagePublisher<ReservationUpcomingMessage> publisher;
+    MessagePublisher<NotifyUpcomingReservationMessage> publisher;
 
     public static class ReservationData {
         public Long id;
@@ -36,7 +36,7 @@ public class NotifyUpcomingReservationsJob implements Job {
         );
 
         for (ReservationData reservation : upcomingReservations) {
-            ReservationUpcomingMessage message = new ReservationUpcomingMessage();
+            NotifyUpcomingReservationMessage message = new NotifyUpcomingReservationMessage();
             message.reservationId = reservation.id;
             message.userId = reservation.user_id;
             message.roomId = reservation.room_id;

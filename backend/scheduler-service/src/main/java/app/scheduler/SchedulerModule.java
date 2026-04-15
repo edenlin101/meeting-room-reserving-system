@@ -1,6 +1,6 @@
 package app.scheduler;
 
-import app.booking.api.kafka.ReservationUpcomingMessage;
+import app.booking.api.kafka.NotifyUpcomingReservationMessage;
 import app.scheduler.NotifyUpcomingReservationsJob;
 import core.framework.module.Module;
 
@@ -17,7 +17,7 @@ public class SchedulerModule extends Module {
         db().view(NotifyUpcomingReservationsJob.ReservationData.class);
 
         kafka().uri(requiredProperty("sys.kafka.uri"));
-        kafka().publish("reservation-upcoming", ReservationUpcomingMessage.class);
+        kafka().publish("notify-upcoming-reservation", NotifyUpcomingReservationMessage.class);
 
         NotifyUpcomingReservationsJob job = bind(NotifyUpcomingReservationsJob.class);
         schedule().fixedRate("notify-upcoming-reservations", job, Duration.ofMinutes(1));
